@@ -51,3 +51,91 @@ footer {
     border-top: 1px solid #eee;
     color: #666;
 }
+
+/* Faculty Directory Styles */
+.faculty-container, .faculty-detail-container {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.sort-controls {
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.sort-controls select {
+    padding: 0.4rem 0.8rem;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+}
+
+.faculty-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1.5rem;
+}
+
+.faculty-card {
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 1.25rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.faculty-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.faculty-card h2 {
+    margin-top: 0;
+    font-size: 1.25rem;
+}
+
+.faculty-card h2 a {
+    color: #0056b3;
+    text-decoration: none;
+}
+
+.faculty-card h2 a:hover {
+    text-decoration: underline;
+}
+
+.view-profile-btn, .back-link {
+    display: inline-block;
+    margin-top: 0.8rem;
+    color: #0056b3;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.view-profile-btn:hover, .back-link:hover {
+    text-decoration: underline;
+}
+
+.faculty-detail-card {
+    background: #fdfdfd;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 2rem;
+}
+
+.title-subtitle {
+    color: #666;
+    font-style: italic;
+}
+
+.error-box {
+    background: #fff0f0;
+    border: 1px solid #f5c6cb;
+    border-radius: 8px;
+    padding: 1.5rem;
+    color: #721c24;
+}
+

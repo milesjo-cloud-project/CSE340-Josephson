@@ -15,9 +15,13 @@ app.set('view engine', 'ejs');
 // Tell Express where to find your templates
 app.set('views', path.join(__dirname, 'src/views'));
 
+const routes = require('./src/routes');
+
 /**
  * Routes
  */
+app.use('/', routes);
+
 app.get('/', (req, res) => {
     const title = 'Welcome Home';
     res.render('home', { title });

@@ -1,0 +1,32 @@
+<%- include('../partials/header') %>
+
+<main class="faculty-detail-container">
+    <% if (error || !facultyMember) { %>
+        <div class="error-box">
+            <h1>Faculty Member Not Found</h1>
+            <p>Sorry, we couldn't find a faculty member matching that ID.</p>
+            <a href="/faculty" class="back-link">&larr; Back to Faculty Directory</a>
+        </div>
+    <% } else { %>
+        <div class="faculty-detail-card">
+            <h1><%= facultyMember.name %></h1>
+            <p class="title-subtitle"><%= facultyMember.title %> - <%= facultyMember.department %></p>
+            
+            <hr />
+
+            <div class="info-section">
+                <p><strong>Department:</strong> <%= facultyMember.department %></p>
+                <p><strong>Title:</strong> <%= facultyMember.title %></p>
+                <p><strong>Office:</strong> <%= facultyMember.office %></p>
+                <p><strong>Phone:</strong> <%= facultyMember.phone %></p>
+                <p><strong>Email:</strong> <a href="mailto:<%= facultyMember.email %>"><%= facultyMember.email %></a></p>
+            </div>
+
+            <div class="actions">
+                <a href="/faculty" class="back-link">&larr; Back to Faculty Directory</a>
+            </div>
+        </div>
+    <% } %>
+</main>
+
+<%- include('../partials/footer') %>
