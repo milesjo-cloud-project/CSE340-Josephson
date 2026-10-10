@@ -1,7 +1,11 @@
 const { getFacultyById, getSortedFaculty } = require('../../models/faculty/faculty');
 
 const facultyListPage = (req, res) => {
-  const sortBy = req.query.sortBy || 'name';
+  const supportedSortFields = ['name', 'department', 'title'];
+  const requestedSortBy = req.query.sortBy;
+  const sortBy = supportedSortFields.includes(requestedSortBy)
+    ? requestedSortBy
+    : 'name';
   const facultyList = getSortedFaculty(sortBy);
 
   res.render('faculty/list', {
@@ -11,7 +15,7 @@ const facultyListPage = (req, res) => {
   });
 };
 
-const facultyDetailPage = (req, res, next) => {
+const facultyDetailPage = (req, res) => {
   const { facultyId } = req.params;
   const facultyMember = getFacultyById(facultyId);
 
