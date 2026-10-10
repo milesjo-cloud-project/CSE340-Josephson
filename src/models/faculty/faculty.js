@@ -75,10 +75,11 @@ const faculty = {
 };
 
 const getFacultyById = (facultyId) => {
-  if (faculty[facultyId]) {
-    return { ...faculty[facultyId], id: facultyId };
+  if (!Object.prototype.hasOwnProperty.call(faculty, facultyId)) {
+    return null;
   }
-  return null;
+
+  return { ...faculty[facultyId], id: facultyId };
 };
 
 const getSortedFaculty = (sortBy) => {

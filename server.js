@@ -22,31 +22,6 @@ const routes = require('./src/routes');
  */
 app.use('/', routes);
 
-app.get('/', (req, res) => {
-    const title = 'Welcome Home';
-    res.render('home', { title });
-});
-
-app.get('/about', (req, res) => {
-    const title = 'About Me';
-    res.render('about', { title });
-});
-
-app.get('/products', (req, res) => {
-    const title = 'Our Products';
-    res.render('products', { title });
-});
-
-app.get('/student', (req, res) => {
-    res.render('student', {
-        title: 'Student Information',
-        name: 'Jane Doe',
-        id: 'A01234567',
-        email: 'jane.doe@example.edu',
-        address: '123 University Way, Rexburg, ID'
-    });
-});
-
 app.listen(PORT, () => {
     console.log(`Server running in ${NODE_ENV} mode on http://localhost:${PORT}`);
 });

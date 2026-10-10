@@ -139,3 +139,20 @@ footer {
     color: #721c24;
 }
 
+.error-page {
+    max-width: 640px;
+}
+
+.error-page .error-box {
+    background: #f9f9f9;
+    border-color: #ddd;
+    color: #333;
+}
+
+.error-status {
+    margin: 0;
+    color: #666;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
