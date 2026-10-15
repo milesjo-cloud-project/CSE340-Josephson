@@ -1,4 +1,4 @@
-import { generateConfirmationCode } from '../includes/helpers.js';
+import { generateConfirmationCode, yenToUsd, monthToAbbreviation } from '../includes/helpers.js';
 import { getDb as db } from './db-in-file.js';
 
 // ROUTE MODEL FUNCTIONS
@@ -18,7 +18,11 @@ export const getListOfSeasons = async () => {
 };
 
 export const getRouteById = async (routeId) => {
-    return db().routes.find(route => route.id == routeId) || null;
+    const route = db().routes.find(route => route.id == routeId);
+    return route ? {
+        ...route,
+        operatingMonthNames: route.operatingMonths.map(monthToAbbreviation)
+    } : null;
 };
 
 export const getRoutesByRegion = async (region) => {
@@ -169,7 +173,7 @@ export const getTicketOptionsForRoute = async (routeId) => {
     return db().ticketClasses.map(tc => ({
         class: tc.class,
         name: tc.name,
-        price: route.distance * tc.pricePerKm,
+        price: Math.round(yenToUsd(route.distance * tc.pricePerKm) * 100) / 100,
         amenities: tc.amenities,
         description: tc.description
     }));

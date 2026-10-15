@@ -405,15 +405,97 @@ article.confirmation-page {
     }
 }
 
-@media print {
-    article.confirmation-page {
-        .confirmation-actions {
-            display: none;
-        }
+@page {
+    size: portrait;
+    margin: 12mm;
+}
 
-        .confirmation-header {
-            background-color: white;
-            border: 2px solid var(--clr-primary);
-        }
+@media print {
+    body:has(.confirmation-page) {
+        display: block;
+        min-height: 0;
+        background: white;
+        color: black;
+    }
+    body:has(.confirmation-page) > header,
+    body:has(.confirmation-page) > footer,
+    article.confirmation-page .confirmation-actions,
+    article.confirmation-page .success-icon,
+    article.confirmation-page .confirmation-message,
+    article.confirmation-page .next-steps,
+    article.confirmation-page .detail-icon,
+    article.confirmation-page .passenger-header {
+        display: none;
+    }
+    body:has(.confirmation-page) > main {
+        display: block;
+        padding: 0;
+        margin: 0;
+    }
+    article.confirmation-page {
+        max-width: none;
+        margin: 0;
+        color: black;
+    }
+    article.confirmation-page .confirmation-header {
+        padding: 0 0 12px;
+        margin-bottom: 12px;
+        gap: 4px;
+        background: white;
+    }
+    article.confirmation-page .booking-reference {
+        margin: 0;
+        padding: 6px 12px;
+        flex-direction: row;
+        gap: 12px;
+    }
+    article.confirmation-page .confirmation-content {
+        gap: 12px;
+    }
+    article.confirmation-page .section-title {
+        margin-bottom: 6px;
+        padding-bottom: 3px;
+    }
+    article.confirmation-page .details-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 8px;
+    }
+    article.confirmation-page .detail-card,
+    article.confirmation-page .important-info {
+        padding: 8px;
+    }
+    article.confirmation-page .passengers-list {
+        gap: 6px;
+    }
+    article.confirmation-page .passenger-header {
+        padding: 2px 8px;
+    }
+    article.confirmation-page .passenger-details {
+        flex-direction: row;
+        gap: 12px;
+        padding: 4px 8px;
+    }
+    article.confirmation-page .passenger-detail {
+        flex: 1;
+        min-width: 0;
+        gap: 0;
+        overflow-wrap: anywhere;
+    }
+    article.confirmation-page .passenger-detail:nth-child(2) {
+        flex: 1.5;
+    }
+    article.confirmation-page .passenger-info-card,
+    article.confirmation-page .booking-details,
+    article.confirmation-page .payment-summary,
+    article.confirmation-page .important-info,
+    article.confirmation-page .booking-reference {
+        break-inside: avoid;
+        box-shadow: none;
+    }
+    article.confirmation-page .info-title {
+        margin-bottom: 4px;
+    }
+    article.confirmation-page .info-list {
+        gap: 0;
     }
 }
